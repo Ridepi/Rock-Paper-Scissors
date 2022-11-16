@@ -12,3 +12,6 @@ function getComputerChoice () {
 let computerSelection = getComputerChoice();
 console.log(computerSelection);
 
+//ask player for input, make it case insensitive
+let playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+console.log (playerSelection);
