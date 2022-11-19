@@ -9,13 +9,9 @@ function getComputerChoice () {
     }
 }
 
-//let computerSelection = getComputerChoice();
-
 function getPlayerChoice() {
     return prompt("Rock, paper or scissors?").toLowerCase();
 }
-
-//let playerSelection = getPlayerChoice();
 
 let personScore = 0;
 let computerScore = 0;
