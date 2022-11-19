@@ -1,4 +1,3 @@
-//step 3 - getComputerChoice
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3)+1;
     if (computerChoice === 1) {
@@ -9,21 +8,45 @@ function getComputerChoice () {
         return "scissors";
     }
 }
+
 let computerSelection = getComputerChoice();
-console.log(computerSelection);
 
-//ask player for input, make it case insensitive
-let playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
-console.log (playerSelection);
+function getPlayerChoice() {
+    return prompt("Rock, paper or scissors?").toLowerCase();
+}
 
-//function to play a round of Rock Paper Scissors -- Add tie option!
+let playerSelection = getPlayerChoice();
+
+let personScore = 0;
+let computerScore = 0;
+
 function PlayRound(playerSelection,computerSelection) {
     if ((playerSelection === "rock" && computerSelection ==="scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
-        return `You win! ${playerSelection} beats ${computerSelection}!`
+        personScore += 1; 
+        computerScore +=0;
     } else if (playerSelection === computerSelection) {
-        return "It's a tie!"
+        personScore += 0; 
+        computerScore +=0;
     } else {
-        return `You lose! ${computerSelection} beats ${playerSelection}!`
+        personScore += 0; 
+        computerScore += 1;
     }
 }
-console.log (PlayRound(playerSelection,computerSelection));
+
+function game() {
+    for (let i=0; i<5; i++) {
+        getPlayerChoice();
+        console.log(`For round ${i+1} player chose ${playerSelection}`);
+        getComputerChoice();
+        console.log(`For round ${i+1} computer chose ${computerSelection}`)
+        PlayRound(playerSelection,computerSelection);
+        console.log (personScore, computerScore);
+    }
+}
+
+game();
+if (personScore > computerScore) {
+    console.log(`You won with a score of ${personScore} to ${computerScore}!`);
+}   else {
+    console.log(`O no, you lost with a score of ${personScore} to ${computerScore}!`);
+}
