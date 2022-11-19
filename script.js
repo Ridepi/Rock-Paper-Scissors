@@ -9,13 +9,13 @@ function getComputerChoice () {
     }
 }
 
-let computerSelection = getComputerChoice();
+//let computerSelection = getComputerChoice();
 
 function getPlayerChoice() {
     return prompt("Rock, paper or scissors?").toLowerCase();
 }
 
-let playerSelection = getPlayerChoice();
+//let playerSelection = getPlayerChoice();
 
 let personScore = 0;
 let computerScore = 0;
@@ -34,21 +34,29 @@ function PlayRound(playerSelection,computerSelection) {
 }
 
 function game() {
-    for (let i=0; i<5; i++) {
+    let i = 0;
+    for (; i<5; i++) {
+        let playerSelection = getPlayerChoice();
+        let computerSelection = "paper";
         PlayRound(playerSelection,computerSelection);
         console.log(`For round ${i+1} player chose ${playerSelection}`);
         console.log(`For round ${i+1} computer chose ${computerSelection}`);
         console.log (personScore, computerScore);
-        playerSelection = getPlayerChoice();
-        computerSelection = getComputerChoice();
     }
-    if (personScore > computerScore) {
-        console.log(`You won with a score of ${personScore} to ${computerScore}!`);
-    }   else if (computerScore > personScore) {
+    while (personScore === computerScore) {
+        let playerSelection = getPlayerChoice();
+        let computerSelection = "paper";
+        PlayRound (playerSelection,computerSelection);
+        console.log(`For round ${i+1} player chose ${playerSelection}`);
+        console.log(`For round ${i+1} computer chose ${computerSelection}`);
+        console.log (personScore, computerScore);
+        i++;
+    }
+    if (computerScore > personScore) {
         console.log(`O no, you lost with a score of ${personScore} to ${computerScore}!`);
-    }   else {
-        console.log (`Somehow you ended up with a tie after 5 games, amazing!`);
-    }
+    }   else if (computerScore < personScore){
+            console.log(`You won with a score of ${personScore} to ${computerScore}!`);
+        } 
 }
 
 game();
