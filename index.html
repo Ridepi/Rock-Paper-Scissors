@@ -4,22 +4,32 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
         <script src="script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Pinyon+Script&display=swap" rel="stylesheet">
         <title>Rock Paper Scissors</title>
     </head>
     <body>
-            <div class="background">
+        <div class="background">
             <div class="header">The queen cordially invites you...</div>
-            <div class="subHeader">to take part in her favorite pastime:</div>
-            <div class="subHeader">The noble game of Rock, Paper, Scissors!</div>
-            <p>Please make your choice:</p>
-            <ul>
-                <li>Rock</li>
-                <li>Paper</li>
-                <li>Scissors</li>
-            </ul>
-            <div class="computerChoice"></div>
+            <div class="subHeader1">To take part in her favorite pastime:</div>
+            <div class="subHeader2">The noble game of Rock, Paper, Scissors!</div>
+            <div class = choiceSelection>
+                <div class = "playerChoice">
+                    <div class="playerChoiceDeclare">Please select one of the following:</div>
+                    <ul>
+                        <li><button class="playerChoiceRock btn"><img src="img/rock.jpg"/></button></li>
+                        <li><button class="playerChoicePaper btn"><img src="img/paper.jpg"/></button></li>
+                        <li><button class="playerChoiceScissors btn"><img src="img/scissors.jpg"/></button></li>
+                    </ul>
+                </div>
+                <div class = "computerChoice">
+                    <div class = "computerChoiceDeclare">The Queen chose:</div>
+                    <div class="computerChoicePicture"></div>
+                </div>  
+            </div>
+        </div>         
+                
+                
             <div class="playerScore"></div>
             <div class="computerScore"></div>
-        </div>
     </body>
 </html>
