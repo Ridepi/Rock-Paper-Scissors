@@ -48,7 +48,7 @@ body {
     width: 75vmin;
 }
 
-.playerChoiceDeclare, .computerChoiceDeclare {
+.playerChoiceDeclare, .computerChoiceDeclare, .scoreIndicator, .finalScore {
     font-family: "Cormorant Garamond", serif;
     font-size: 25px;
     text-align: center;
