@@ -6,10 +6,14 @@ function getComputerChoice () {
 }
 
 let computerChoiceImg = document.createElement("img");
+let computerChoicePicture = document.querySelector("#computerChoicePicture");
 let personScore = 0;
 let computerScore = 0;
 let playerSelection;
-let retryButton = document.querySelector("#retryButton");
+let scoreIndicator = document.querySelector("#scoreIndicator");
+let finalScore = document.querySelector("#finalScore");
+let retryButton = document.createElement("button")
+let retryButtondiv = document.querySelector("#retryButton");
 
 //define the player's choice and run the game
 document.getElementById("playerChoiceRock").addEventListener("click", function () {
@@ -40,22 +44,25 @@ function onClick (){
     } else {
         computerChoiceImg.src = "img/scissors.jpg";
     }
-    document.getElementById("computerChoicePicture").appendChild(computerChoiceImg);
-    PlayRound(playerSelection, computerSelection)
-    document.getElementById("scoreIndicator").textContent= `The score is ${personScore} to ${computerScore}`;
+    computerChoicePicture.appendChild(computerChoiceImg);
+    PlayRound(playerSelection, computerSelection);
+    scoreIndicator.textContent= `The score is ${personScore} to ${computerScore}`;
 }
 
 //function for the end of the game, when one of the scores reaches 5
 function endGame () {
+    retryButton.classList.add("retryButton");
     if (personScore === 5) {
-        document.getElementById("finalScore").textContent = `You bested the Queen with a score of ${personScore} to ${computerScore}!`;
-        document.getElementById("scoreIndicator").textContent= ``;
+        finalScore.textContent = `You bested the Queen with a score of ${personScore} to ${computerScore}!`;
+        scoreIndicator.textContent= ``;
         retryButton.textContent = "Play again";
+        retryButtondiv.appendChild(retryButton);
         resetGame();
     } else if (computerScore === 5) {
-        document.getElementById("finalScore").textContent = `The Queen bested you with a score of ${personScore} to ${computerScore}! Off with your head!`;
-        document.getElementById("scoreIndicator").textContent= ``;
+        finalScore.textContent = `The Queen bested you with a score of ${personScore} to ${computerScore}! Off with your head!`;
+        scoreIndicator.textContent= ``;
         retryButton.textContent = "Try again?";
+        retryButtondiv.appendChild(retryButton);
         resetGame();
     }
 }
@@ -63,11 +70,12 @@ function endGame () {
 //function to restart the game
 function resetGame() {
     retryButton.addEventListener("click", function () {
-        document.getElementById("finalScore").textContent = "";
+        finalScore.textContent = "";
         personScore = 0;
         computerScore = 0;
         retryButton.textContent = "";
-        document.getElementById("computerChoicePicture").removeChild(computerChoiceImg);
+        retryButtondiv.removeChild(retryButton);
+        computerChoicePicture.removeChild(computerChoiceImg);
     })
 }
 
