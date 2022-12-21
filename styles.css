@@ -15,7 +15,7 @@ body {
 .background {
     background-color: rgba(255, 226, 230, 0.7);
     height: 100%;
-    width: 90vmin;
+    width: 65vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@ body {
 
 .header {
     font-family: "Pinyon Script", cursive;
-    font-size: 60px;
+    font-size: 80px;
     text-align:center;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -31,15 +31,15 @@ body {
 
 .subHeader1, .subHeader2 {
     font-family: "Cormorant Garamond", serif;
-    font-size: 25px;
+    font-size: 30px;
     text-align: center;
 }
 
 .subHeader1 {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .subHeader2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .choiceSelection {
@@ -48,10 +48,20 @@ body {
     width: 75vmin;
 }
 
-.playerChoiceDeclare, .computerChoiceDeclare, .scoreIndicator, .finalScore {
+.playerChoiceDeclare, .computerChoiceDeclare, .scoreIndicator1 {
     font-family: "Cormorant Garamond", serif;
     font-size: 25px;
     text-align: center;
+    margin-bottom: 15px;
+}
+
+.scoreIndicator2, .finalScore {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.finalScore {
     margin-bottom: 15px;
 }
 
@@ -112,8 +122,8 @@ ul img:hover {
 }
 
 .retryButton {
-    width: 250px;
-    background-color: rgba(255, 226, 230, 0.8);
+    width: 220px;
+    background-color: rgba(255, 226, 230, 0.9);
     font-family: "Pinyon Script", cursive;
     font-size: 45px;
     border-radius: 15px;

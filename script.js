@@ -10,7 +10,8 @@ let computerChoicePicture = document.querySelector("#computerChoicePicture");
 let personScore = 0;
 let computerScore = 0;
 let playerSelection;
-let scoreIndicator = document.querySelector("#scoreIndicator");
+let scoreIndicator1 = document.querySelector("#scoreIndicator1");
+let scoreIndicator2 = document.querySelector("#scoreIndicator2");
 let finalScore = document.querySelector("#finalScore");
 let retryButton = document.createElement("button")
 let retryButtondiv = document.querySelector("#retryButton");
@@ -46,23 +47,29 @@ function onClick (){
     }
     computerChoicePicture.appendChild(computerChoiceImg);
     PlayRound(playerSelection, computerSelection);
-    scoreIndicator.textContent= `The score is ${personScore} to ${computerScore}`;
+    scoreIndicator2.textContent= `The score is ${personScore} to ${computerScore}`;
 }
 
 //function for the end of the game, when one of the scores reaches 5
 function endGame () {
     retryButton.classList.add("retryButton");
     if (personScore === 5) {
-        finalScore.textContent = `You bested the Queen with a score of ${personScore} to ${computerScore}!`;
-        scoreIndicator.textContent= ``;
+        finalScore.textContent = `You bested the Queen with a total score of ${personScore} to ${computerScore}!`;
+        scoreIndicator2.textContent= ``;
         retryButton.textContent = "Play again";
         retryButtondiv.appendChild(retryButton);
+        document.querySelectorAll('button.btn').forEach(elem => {
+            elem.disabled = true;
+        });
         resetGame();
     } else if (computerScore === 5) {
-        finalScore.textContent = `The Queen bested you with a score of ${personScore} to ${computerScore}! Off with your head!`;
-        scoreIndicator.textContent= ``;
+        finalScore.textContent = `The Queen bested you with a total score of ${personScore} to ${computerScore}! Off with your head!`;
+        scoreIndicator2.textContent= ``;
         retryButton.textContent = "Try again?";
         retryButtondiv.appendChild(retryButton);
+        document.querySelectorAll('button.btn').forEach(elem => {
+            elem.disabled = true;
+        });
         resetGame();
     }
 }
@@ -76,6 +83,9 @@ function resetGame() {
         retryButton.textContent = "";
         retryButtondiv.removeChild(retryButton);
         computerChoicePicture.removeChild(computerChoiceImg);
+        document.querySelectorAll('button.btn').forEach(elem => {
+            elem.disabled = false;
+        });
     })
 }
 
@@ -86,11 +96,13 @@ function PlayRound(playerSelection,computerSelection) {
         (playerSelection === "scissors" && computerSelection === "paper")) {
         personScore += 1; 
         computerScore +=0;
+        scoreIndicator1.textContent=`You chose ${playerSelection} and the Queen chose ${computerSelection}. You win this round!`;
     } else if (playerSelection === computerSelection) {
-
+        scoreIndicator1.textContent=`You chose ${playerSelection} and the Queen chose ${computerSelection}. This round is a tie!`;
     } else {
         personScore += 0; 
         computerScore += 1;
+        scoreIndicator1.textContent=`You chose ${playerSelection} and the Queen chose ${computerSelection}. You lose this round!`;
     }
 }
 
